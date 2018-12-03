@@ -1,7 +1,7 @@
 # Secure Chat Application
 
 By: Xiang Zhang, Yunfan Tian
-
+hello
 
 This is a simple secure chat application for CS 6740 final project (server and clien t mode in localhost). You can execute the application by running **server.py** and **client.py**. Besides,  **sign_up.txt** stores username and password for server.
 
