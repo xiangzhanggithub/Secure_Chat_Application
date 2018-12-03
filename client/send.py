@@ -212,8 +212,9 @@ def send_client(socket, name, connect_name, chat_socket, mutex, key, iv, session
                 sub_socket.send_multipart([msg7_en])
                 key_ab_session, iv_ab_session = util.generate_shared_key(private_eckey2, public_eckey1, iv2, iv1)
 
+                session_start_time = int(time.time())
                 mutex_session_key.acquire()
-                session_key_set[connect_name] = [key_ab_session, iv_ab_session]
+                session_key_set[connect_name] = [key_ab_session, iv_ab_session, session_start_time]
                 mutex_session_key.release()
                 return 1
 

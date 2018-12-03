@@ -22,6 +22,17 @@ def log_in_server(socket, ident, data, reply, key_iv, log_in_list):
         print ("%s wants to log in" %(data.UserName))
         key = key_iv[ident][0]
         iv = key_iv[ident][1]
+        if data.UserName in log_in_list:
+            print ("%s have already logged in" %(data.UserName))
+            reply.TypeNumber = 25
+            reply.Note = "You have already logged in, please do not try again"
+            reply.C1 = data.C1
+            reply.C2 = random.randint(1,10001)
+            s_msg = util.aes_en(key, iv, reply.SerializeToString())
+            s_msg_signature = util.rsa_sign(s_msg)
+            socket.send_multipart([ident, s_msg, s_msg_signature])
+            return
+
         with open("sign_up.txt", 'r') as f:
             for line in f:
                 log = line.split("  ")

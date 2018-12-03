@@ -85,7 +85,6 @@ def log_out_server(socket, ident, data, key_iv, log_in_list):
         socket.send_multipart([ident, s_msg])
 
 
-
 def log_out_client(socket, username, key, iv):
     msg_logout = protobuf_pb2.MyProtocol()
     msg_logout.TypeNumber = 99

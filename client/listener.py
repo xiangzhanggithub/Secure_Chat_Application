@@ -131,6 +131,7 @@ def client_socket_listener_as_server(socket, chat_ident, name, mutex, key, iv, s
 
                             key_ab_session, iv_ab_session = util.generate_shared_key(private_eckey1, public_eckey2, iv1, iv2)
 
+                            session_start_time = int(time.time())
                             mutex_session_key.acquire()
-                            session_key_set[msg7.Sender_name] = [key_ab_session, iv_ab_session]
+                            session_key_set[msg7.Sender_name] = [key_ab_session, iv_ab_session, session_start_time]
                             mutex_session_key.release()
