@@ -26,18 +26,18 @@ pip install cryptography
 please compile **protobuf.proto** firstly:
 
 ```shell
-protoc --python_out=. protobuf.proto
+$protoc --python_out=. protobuf.proto
 ```
 
 Then, running **server.py**
 
-```
-python server.py
+```shell
+$python server.py
 ```
 
 And, **client.py**
 
-```
-python client.py
+```shell
+$python client.py
 ```
 
